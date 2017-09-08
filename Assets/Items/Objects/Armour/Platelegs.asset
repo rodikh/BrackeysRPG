@@ -14,6 +14,7 @@ MonoBehaviour:
   name: Platelegs
   icon: {fileID: 21300000, guid: ce2fc3d7f807c2641925acc84a2bd49e, type: 3}
   isDefaultItem: 0
+  itemPickup: {fileID: 1584479685032432, guid: 51b9890e1bdef1540a858284f361405f, type: 2}
   equipSlot: 2
   mesh: {fileID: 137065777176886784, guid: eb214f6830d12364c8de6fe62e175a71, type: 2}
   coveredMeshRegions: 00000000

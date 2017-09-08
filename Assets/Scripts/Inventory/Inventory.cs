@@ -20,13 +20,15 @@ public class Inventory : MonoBehaviour {
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
+    public Transform playerPosition;
+
     public int space = 20;
 
     public List<Item> items = new List<Item>();
 
-    public bool Add (Item item) {
+    public bool Add(Item item) {
         if (!item.isDefaultItem) {
-            if(items.Count >= space) {
+            if (items.Count >= space) {
                 Debug.Log("Not enough room.");
                 return false;
             }
@@ -42,9 +44,14 @@ public class Inventory : MonoBehaviour {
 
     public void Remove(Item item) {
         items.Remove(item);
+
         if (onItemChangedCallback != null) {
             onItemChangedCallback.Invoke();
         }
     }
 
+    public void RemoveAndDrop(Item item) {
+        Remove(item);
+        Instantiate(item.itemPickup, playerPosition.position, Quaternion.identity);
+    }
 }

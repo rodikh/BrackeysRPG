@@ -14,6 +14,7 @@ MonoBehaviour:
   name: Platebody
   icon: {fileID: 21300000, guid: a468a7ffb4b5270478d78ef2e9b26e9d, type: 3}
   isDefaultItem: 0
+  itemPickup: {fileID: 1398329188777580, guid: 3286fdbab0aab524abd483c8341b7318, type: 2}
   equipSlot: 1
   mesh: {fileID: 137531289449907182, guid: 0b816808f10ef8748966769274675f1c, type: 2}
   coveredMeshRegions: 0100000002000000
