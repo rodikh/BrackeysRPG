@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Inventory/Equipment")]
 public class Equipment : Item {
 
-    public EquipmentSlot equipSlot;
+    public EquipmentSlotEnum equipSlot;
     public SkinnedMeshRenderer mesh;
     public EquipmentMeshRegion[] coveredMeshRegions;
 
@@ -23,6 +23,6 @@ public class Equipment : Item {
     }
 }
 
-public enum EquipmentSlot { Head, Chest, Legs, Weapon, Shield, Feet }
+public enum EquipmentSlotEnum { Head, Chest, Legs, Weapon, Shield, Feet }
 
 public enum EquipmentMeshRegion { Legs, Arms, Torso}; // Corresponds to body blendshapes.

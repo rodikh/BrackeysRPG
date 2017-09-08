@@ -15,7 +15,7 @@ public class EquipmentManager : MonoBehaviour {
 
     public Equipment[] defaultItems;
     public SkinnedMeshRenderer targetMesh;
-    Equipment[] currentEquipment;
+    public Equipment[] currentEquipment;
     SkinnedMeshRenderer[] currentMeshes;
 
     Inventory inventory;
@@ -25,7 +25,7 @@ public class EquipmentManager : MonoBehaviour {
 
     private void Start() {
         inventory = Inventory.instance;
-        int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
+        int numSlots = System.Enum.GetNames(typeof(EquipmentSlotEnum)).Length;
         currentEquipment = new Equipment[numSlots];
         currentMeshes = new SkinnedMeshRenderer[numSlots];
 
@@ -35,10 +35,6 @@ public class EquipmentManager : MonoBehaviour {
     public void Equip(Equipment newItem) {
         int slotIndex = (int)newItem.equipSlot;
         Equipment oldItem = Unequip(slotIndex);
-
-        if (onEquipmentChanged != null) {
-            onEquipmentChanged.Invoke(newItem, oldItem);
-        }
 
         SetEquipmentBlendShapes(newItem, 100);
 
@@ -50,9 +46,13 @@ public class EquipmentManager : MonoBehaviour {
         newMesh.rootBone = targetMesh.rootBone;
 
         currentMeshes[slotIndex] = newMesh;
+
+        if (onEquipmentChanged != null) {
+            onEquipmentChanged.Invoke(newItem, oldItem);
+        }
     }
 
-    public Equipment Unequip(int slotIndex) {
+    public Equipment Unequip(int slotIndex, bool toDefault = false) {
         if (currentEquipment[slotIndex] != null) {
             if (currentMeshes[slotIndex] !=null) {
                 Destroy(currentMeshes[slotIndex].gameObject);
@@ -63,6 +63,9 @@ public class EquipmentManager : MonoBehaviour {
             inventory.Add(oldItem);
 
             currentEquipment[slotIndex] = null;
+            if (toDefault) {
+                EquipDefaultItem(slotIndex);
+            }
 
             if (onEquipmentChanged != null) {
                 onEquipmentChanged.Invoke(null, oldItem);
@@ -81,6 +84,15 @@ public class EquipmentManager : MonoBehaviour {
     void EquipDefaultItems() {
         foreach(Equipment item in defaultItems) {
             Equip(item);
+        }
+    }
+
+    void EquipDefaultItem(int slotIndex) {
+        for (int i = 0; i < defaultItems.Length; i++) {
+            if ((int)defaultItems[i].equipSlot == slotIndex) {
+                Equip(defaultItems[i]);
+                return;
+            }
         }
     }
 
