@@ -46,6 +46,8 @@ public class CharacterStats : MonoBehaviour {
     }
 
     public void RegisterStatChanged() {
-        onStatChanged.Invoke();
+        if (onStatChanged != null) {
+            onStatChanged.Invoke();
+        }
     }
 }
