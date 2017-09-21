@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour {
 
@@ -13,4 +14,9 @@ public class PlayerManager : MonoBehaviour {
     #endregion
 
     public GameObject player;
+
+    public void KillPlayer () {
+        // Add delay and animation
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

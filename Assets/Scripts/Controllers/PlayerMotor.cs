@@ -8,6 +8,7 @@ public class PlayerMotor : MonoBehaviour {
 
     Transform target;
     NavMeshAgent agent;
+
     // Use this for initialization
     void Start() {
         agent = GetComponent<NavMeshAgent>();

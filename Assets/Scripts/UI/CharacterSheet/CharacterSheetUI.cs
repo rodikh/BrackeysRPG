@@ -27,7 +27,7 @@ public class CharacterSheetUI : MonoBehaviour {
     }
 
     void UpdateUI(Equipment newItem, Equipment oldItem) {
-        Debug.Log("Updating CS-UI");
+        //Debug.Log("Updating CS-UI");
         for (int i = 0; i < slots.Length; i++) {
             if (equipmentManager.currentEquipment[i] != null && !equipmentManager.currentEquipment[i].isDefaultItem) {
                 slots[i].AddItem(equipmentManager.currentEquipment[i]);
