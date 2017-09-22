@@ -15,7 +15,6 @@ public class PlayerMotor : MonoBehaviour {
     }
 
     private void Update() {
-        // TODO: turn this into a co-routine to run once every few frames and not every frame
         if (target != null) {
             agent.SetDestination(target.position);
             FaceTarget();

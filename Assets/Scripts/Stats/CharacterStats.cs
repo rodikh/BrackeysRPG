@@ -7,6 +7,7 @@ public class CharacterStats : MonoBehaviour {
     public Stat maxHealth;
     public Stat damage;
     public Stat armor;
+    public Stat attackSpeed;
 
     public Stat[] displayedStats;
     public delegate void OnStatChanged();
@@ -15,7 +16,7 @@ public class CharacterStats : MonoBehaviour {
     public int currentHealth { get; private set; }
     private void Awake() {
         currentHealth = maxHealth.GetValue();
-        displayedStats = new Stat[] { maxHealth, damage, armor };
+        displayedStats = new Stat[] { maxHealth, damage, armor, attackSpeed };
         for (int i = 0; i < displayedStats.Length; i++) {
             displayedStats[i].onStatChanged += RegisterStatChanged;
         }

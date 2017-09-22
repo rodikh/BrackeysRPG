@@ -5,8 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterCombat : MonoBehaviour {
 
-    //TODO: move to stats
-    public float attackSpeed = 1f;
+
     private float attackCooldown = 0f;
     public float attackDelay = .6f;
 
@@ -30,7 +29,7 @@ public class CharacterCombat : MonoBehaviour {
                 OnAttack();
             }
 
-            attackCooldown = 1f / attackSpeed;
+            attackCooldown = 1f / myStats.attackSpeed.GetValue();
         }
         
     }
