@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterCombat : MonoBehaviour {
@@ -10,19 +11,32 @@ public class CharacterCombat : MonoBehaviour {
     public float attackDelay = .6f;
 
     public event System.Action OnAttack;
+    public CharacterStats autoAttackTarget;
+
+    NavMeshAgent agent;
 
     CharacterStats characterStats;
 
     private void Start() {
         characterStats = GetComponent<CharacterStats>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update() {
         attackCooldown -= Time.deltaTime;
+
+        if (autoAttackTarget != null && Vector3.Distance(transform.position, autoAttackTarget.transform.position) <= agent.stoppingDistance) {
+            Attack(autoAttackTarget);
+        }
+
     }
 
-    public void AutoAttackMe() {
+    public void AutoAttack(CharacterStats target) {
+        autoAttackTarget = target;
+    }
 
+    public void StopAutoAttack() {
+        autoAttackTarget = null;
     }
 
     public void Attack (CharacterStats targetStats) {

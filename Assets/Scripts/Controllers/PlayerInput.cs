@@ -26,8 +26,8 @@ public class PlayerInput : MonoBehaviour {
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 100, movementMask)) {
-                playerController.MoveToPoint(hit.point);
                 playerController.RemoveFocus();
+                playerController.MoveToPoint(hit.point);
             }
         }
 
