@@ -7207,6 +7207,7 @@ GameObject:
   - component: {fileID: 1539493164}
   - component: {fileID: 1539493170}
   - component: {fileID: 1539493169}
+  - component: {fileID: 1539493172}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -7225,7 +7226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019626bbfad0cfd4b8a8df3e98694097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
 --- !u!54 &1539493165
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7309,6 +7309,9 @@ MonoBehaviour:
   armor:
     displayName: 
     baseValue: 3
+  attackSpeed:
+    displayName: 
+    baseValue: 1
   displayedStats: []
 --- !u!114 &1539493170
 MonoBehaviour:
@@ -7334,8 +7337,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babdffa2f2aa30e498a2fb794d9110fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1
   attackDelay: 0.6
+--- !u!135 &1539493172
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1539493163}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 9
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1547667510
 GameObject:
   m_ObjectHideFlags: 0
@@ -7593,11 +7607,12 @@ GameObject:
   - component: {fileID: 1572903700}
   - component: {fileID: 1572903699}
   - component: {fileID: 1572903698}
-  - component: {fileID: 1572903705}
   - component: {fileID: 1572903702}
+  - component: {fileID: 1572903705}
   - component: {fileID: 1572903697}
   - component: {fileID: 1572903703}
   - component: {fileID: 1572903704}
+  - component: {fileID: 1572903706}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7616,7 +7631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f54a83364147046b41d160b89f772e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focus: {fileID: 0}
   movementMask:
     serializedVersion: 2
     m_Bits: 256
@@ -7725,6 +7739,9 @@ MonoBehaviour:
   armor:
     displayName: Armor
     baseValue: 0
+  attackSpeed:
+    displayName: Attack Speed
+    baseValue: 1
   displayedStats: []
 --- !u!114 &1572903705
 MonoBehaviour:
@@ -7737,8 +7754,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babdffa2f2aa30e498a2fb794d9110fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1
   attackDelay: 0.6
+--- !u!114 &1572903706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572903696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21495a82ac4e77943bc24ae377354309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  interactionTransform: {fileID: 1572903701}
 --- !u!4 &1577427313 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4433006447830956, guid: 65b6388fdf5b5d24393f288fe96f3552,

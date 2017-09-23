@@ -13,13 +13,18 @@ public class Enemy : Interactable {
         myStats = GetComponent<CharacterStats>();
     }
 
-    public override void Interact() {
-        base.Interact();
-        // Attack the enemy
-        CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
+    public override bool Interact(BaseCharacterController interactor) {
+        return true;
+        // TODO: interact using Character Combat and not here
+        //base.Interact(interactor);
+        //// Attack the enemy
+        //CharacterCombat characterCombat = interactor.GetComponent<CharacterCombat>();
 
-        if (playerCombat != null) {
-            playerCombat.Attack(myStats);
-        }
+        //if (characterCombat != null) {
+        //    characterCombat.Attack(myStats);
+        //}
+
+        ////Todo: true if dead
+        //return false;
     }
 }

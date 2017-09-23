@@ -3,49 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour {
-
-    public float lookRadius = 10f;
-
-    Transform target;
-    NavMeshAgent agent;
-
-    CharacterCombat combat;
-
-	// Use this for initialization
-	void Start () {
-        agent = GetComponent<NavMeshAgent>();
-        target = PlayerManager.instance.player.transform;
-        combat = GetComponent<CharacterCombat>();
-	}
-	
+public class EnemyController : BaseCharacterController {
+    	
 	// Update is called once per frame
-	void Update () {
-        float distance = Vector3.Distance(target.position, transform.position);
+	//void Update () {
+ //       if (focus != null) {
+ //           agent.SetDestination(focus.transform.position);
+ //           FaceTarget();
+ //       }
 
-        if (distance <= lookRadius) {
-            agent.SetDestination(target.position);
 
-            if (distance <= agent.stoppingDistance) {
-                // Attack the target
-                CharacterStats targetStats = target.GetComponent<CharacterStats>();
-                if (targetStats !=null) {
-                    combat.Attack(targetStats);
-                }
-                FaceTarget();
+        //    if (distance <= agent.stoppingDistance) {
+        //         Attack the target
+        //        CharacterStats targetStats = target.GetComponent<CharacterStats>();
+        //        if (targetStats != null) {
+        //            combat.Attack(targetStats);
+        //        }
+        //        FaceTarget();
 
-            }
+        //    }
+    //}
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.GetComponent<BaseCharacterController>() != null) { 
+            Debug.Log(gameObject.name + ": I can see " + other.gameObject.name);
+            SetFocus(other.gameObject.GetComponent<Interactable>());
         }
-	}
-
-    void FaceTarget () {
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-    }
-
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
 }

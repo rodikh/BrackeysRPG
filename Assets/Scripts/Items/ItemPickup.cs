@@ -3,10 +3,11 @@
 public class ItemPickup : Interactable {
     public Item item;
 
-    public override void Interact() {
-        base.Interact();
+    public override bool Interact(BaseCharacterController interactor) {
+        base.Interact(interactor);
 
         Pickup();
+        return true;
     }
 
     void Pickup() {
@@ -16,6 +17,5 @@ public class ItemPickup : Interactable {
         if (wasPickedUp) {
             Destroy(gameObject);
         }
-
     }
 }

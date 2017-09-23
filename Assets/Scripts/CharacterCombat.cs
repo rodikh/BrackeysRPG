@@ -11,14 +11,18 @@ public class CharacterCombat : MonoBehaviour {
 
     public event System.Action OnAttack;
 
-    CharacterStats myStats;
+    CharacterStats characterStats;
 
     private void Start() {
-        myStats = GetComponent<CharacterStats>();
+        characterStats = GetComponent<CharacterStats>();
     }
 
     private void Update() {
         attackCooldown -= Time.deltaTime;
+    }
+
+    public void AutoAttackMe() {
+
     }
 
     public void Attack (CharacterStats targetStats) {
@@ -29,13 +33,13 @@ public class CharacterCombat : MonoBehaviour {
                 OnAttack();
             }
 
-            attackCooldown = 1f / myStats.attackSpeed.GetValue();
+            attackCooldown = 1f / characterStats.attackSpeed.GetValue();
         }
         
     }
 
     IEnumerator DoDamage (CharacterStats stats, float delay) {
         yield return new WaitForSeconds(delay);
-        stats.TakeDamage(myStats.damage.GetValue());
+        stats.TakeDamage(characterStats.damage.GetValue());
     }
 }
