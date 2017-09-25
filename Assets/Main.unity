@@ -527,9 +527,9 @@ GameObject:
   - component: {fileID: 101123168}
   - component: {fileID: 101123167}
   - component: {fileID: 101123166}
-  - component: {fileID: 101123165}
   - component: {fileID: 101123163}
   - component: {fileID: 101123162}
+  - component: {fileID: 101123164}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Untagged
@@ -573,7 +573,7 @@ MonoBehaviour:
     displayName: 
     baseValue: 1
   displayedStats: []
---- !u!114 &101123165
+--- !u!114 &101123164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -581,16 +581,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 101123161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 019626bbfad0cfd4b8a8df3e98694097, type: 3}
+  m_Script: {fileID: 11500000, guid: b5157d3b0d511164699073debb17f376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
   interactionTransform: {fileID: 101123170}
-  agent: {fileID: 0}
-  combat: {fileID: 0}
-  focus: {fileID: 0}
-  target: {fileID: 0}
-  hasInteracted: 0
   faction: 1
 --- !u!114 &101123166
 MonoBehaviour:
@@ -5318,6 +5313,7 @@ GameObject:
   - component: {fileID: 1028024117}
   - component: {fileID: 1028024114}
   - component: {fileID: 1028024113}
+  - component: {fileID: 1028024115}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -5361,6 +5357,20 @@ MonoBehaviour:
     displayName: 
     baseValue: 1
   displayedStats: []
+--- !u!114 &1028024115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1028024112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5157d3b0d511164699073debb17f376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  interactionTransform: {fileID: 1028024121}
+  faction: 0
 --- !u!114 &1028024117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7628,9 +7638,9 @@ GameObject:
   - component: {fileID: 1539493166}
   - component: {fileID: 1539493165}
   - component: {fileID: 1539493171}
-  - component: {fileID: 1539493164}
   - component: {fileID: 1539493169}
   - component: {fileID: 1539493172}
+  - component: {fileID: 1539493170}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -7638,25 +7648,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1539493164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1539493163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 019626bbfad0cfd4b8a8df3e98694097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
-  interactionTransform: {fileID: 1539493168}
-  agent: {fileID: 0}
-  combat: {fileID: 0}
-  focus: {fileID: 0}
-  target: {fileID: 0}
-  hasInteracted: 0
-  faction: 1
 --- !u!54 &1539493165
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7744,6 +7735,20 @@ MonoBehaviour:
     displayName: 
     baseValue: 1
   displayedStats: []
+--- !u!114 &1539493170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1539493163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5157d3b0d511164699073debb17f376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  interactionTransform: {fileID: 1539493168}
+  faction: 1
 --- !u!114 &1539493171
 MonoBehaviour:
   m_ObjectHideFlags: 0
